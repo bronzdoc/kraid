@@ -16,7 +16,7 @@ build/kernel.bin: build/multiboot_header.o build/boot.o linker.ld
 build/os.iso: build/kernel.bin grub.cfg
 	mkdir -p build/isofiles/boot/grub
 	cp grub.cfg build/isofiles/boot/grub
-	cp kernel.bin build/isofiles/boot
+	cp build/kernel.bin build/isofiles/boot
 	grub-mkrescue -o build/os.iso build/isofiles
 
 build: build/os.iso
