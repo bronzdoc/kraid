@@ -4,8 +4,8 @@ header_start:
 	dd 0                         ; protected mode code
 	dd header_end - header_start ; header length
 
-    ; checksum
-    dd 0x100000000 - (0xe85250d6 + 0 + (header_end - header_start))
+	; checksum
+	dd 0x100000000 - (0xe85250d6 + 0 + (header_end - header_start))
 
 	; required tags
 	dw 0 ; type
