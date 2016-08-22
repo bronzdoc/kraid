@@ -39,7 +39,7 @@ start:
 		cmp ecx, 512
 		jne .map_p2_table
 
-	; mov page table address to cr3
+	; move page table address to cr3
 	mov eax, p4_table
 	mov cr3, eax
 
