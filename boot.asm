@@ -12,6 +12,23 @@ p3_table:
 p2_table:
 	resb 4096
 
+section .rodata
+; Setting up a GDT
+gdt64:
+	dq 0
+	.code: equ $ - gdt64
+		dq (1<<44) | (1<<47) | (1<<41) | (1<<43) | (1<<53)
+
+	.data: equ $ - gdt64
+		dq (1<<44) | (1<<47) | (1<<41)
+
+	.pointer:
+		dw .pointer - gdt64 - 1
+		dq gdt64
+
+; Load global descriptor table
+lgdt [gdt64.pointer]
+
 section .text
 bits 32
 
