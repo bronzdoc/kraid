@@ -1,1 +1,1 @@
-ultron - a kernel written in Rust
+kraid - a kernel written in Rust
