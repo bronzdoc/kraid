@@ -1,0 +1,6 @@
+[package]
+name = "kraid"
+version = "0.1.0"
+authors = ["bronzdoc <lsagastume1990@gmail.com>"]
+
+[dependencies]
