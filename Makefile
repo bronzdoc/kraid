@@ -24,5 +24,8 @@ build: target/os.iso
 run: target/os.iso
 	qemu-system-x86_64 -cdrom target/os.iso
 
+cargo:
+	xargo build --release --target x86_64-unknown-kraid-gnu
+
 clean:
 	cargo clean
