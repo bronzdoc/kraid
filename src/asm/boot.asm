@@ -1,5 +1,7 @@
 ; vi: set ft=nasm :
 
+extern kmain
+
 global start
 
 section .text
@@ -59,7 +61,7 @@ start:
 	mov es, ax
 
 	; jump to long mode
-	jmp gdt64.code:long_mode_start
+	jmp gdt64.code:kmain
 
 section .bss
 
@@ -89,13 +91,3 @@ gdt64:
 .pointer:
 	dw .pointer - gdt64 - 1
 	dq gdt64
-
-section .text
-
-bits 64
-
-long_mode_start:
-
-	mov rax, 0x2f592f412f4b2f4f
-	mov qword [0xb8000], rax
-	hlt
